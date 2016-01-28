@@ -1,0 +1,76 @@
+<!DOCTYPE>
+ <html>
+ <head>
+ 	<title>Assignment4</title>
+ 	<meta charset="utf-8">
+ 	
+<script type="text/javascript">
+function checkBrackets(str)
+		 	{
+			    var depth = 0;
+			    
+			    for(var i in str)
+			    {   
+			        if(str[i] == '(')
+			        {
+			            depth ++;
+			        } 
+			        else if(str[i] == ')') 
+			        {
+			            depth --;
+			        }  
+			        if (depth < 0) return false;
+			    }
+			    if(depth > 0) return false;
+			    return true;
+			}
+		
+		function check(){
+			var x=document.getElementById("inp1").value;
+			document.getElementById("lbl1").innerHTML= checkBrackets(x);
+		}
+		
+ 	
+		 	/*function checkBrackets(str)
+		 	{
+			    var depth = 0;
+			    
+			    for(var i in str)
+			    {   
+			        if(str[i] == '(')
+			        {
+			            depth ++;
+			        } 
+			        else if(str[i] == ')') 
+			        {
+			            depth --;
+			        }  
+			        if (depth < 0) return false;
+			    }
+			    if(depth > 0) return false;
+			    return true;
+			}
+			for(var i=1;i<=3;i++)
+			{
+			var x=document.getElementById(("exp"+i)).innerHTML;
+			document.writeln("<p>"+ checkBrackets(x)+"</p>")
+		}*/
+		</script>
+
+ </head>
+ <body>
+<h3>Expressions bracket checking</h3>
+
+<p id="exp1">('( ( a + b ) / 5 abd )')</p>
+<p id="exp2">('( ( a + b ) / 5 abd )')))</p>
+<p id="exp3">('( ( a + b ) / 5 abd )'))</p>
+<label>put in the expressions like above to check!! </label>
+<input  id="inp1" type="text" style="width:200px;">
+<button id="btn1" onclick="check()">Check!</button>
+<br>
+<br>
+<label id="lbl1"></label>
+
+ 
+ </body>
+ </html>

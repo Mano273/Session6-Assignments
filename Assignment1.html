@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Assignment 1</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		
+	
+		
+		function ShowNum()
+		{
+			var str=document.getElementById("inpNum").value;
+			var res= str.split(" ");
+			document.getElementById("dispNum").innerHTML="YourArray is:"+ res;
+		//FindMinMaxNum(res);
+		}
+		
+		function FindMinMaxNum()
+		{var str=document.getElementById("inpNum").value;
+		var res= str.split(" ");
+
+		var maxNum=Math.max.apply(Math, res);
+
+		var minNum=Math.min.apply(Math, res);
+		document.getElementById("maxNum").innerHTML="max is:"+ maxNum;
+		document.getElementById("minNum").innerHTML="min is:"+ minNum;
+		}
+	</script>
+
+</head>
+<body>
+	<h3>Max and Min number of an array</h3>
+	<p>Enter an array of numbers:</p>
+	<input type="text" id="inpNum" placeholder="put sapce between array elements" style="width:300px">
+	<button onclick="ShowNum()" id="shwButton">Show!</button>
+	<button onclick="FindMinMaxNum()" id="FindMinMaxNum">Find!</button>
+	<p id="dispNum"></p>
+	<p id="maxNum"></p>
+	<p id="minNum"></p>
+		
+
+</body>
+</html>

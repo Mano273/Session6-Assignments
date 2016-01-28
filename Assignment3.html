@@ -1,0 +1,83 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Assignment 3</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function ShowNum()
+		{
+			var str=document.getElementById("inpNum").value;
+			var res= str.split(" ");
+			document.getElementById("dispNum").innerHTML="YourArray is:"+ res;
+		}
+	
+		 /*function FindSeq()
+	 	{
+		 	var str=document.getElementById("inpNum").value;
+			var res= str.split(" ");
+			var maxIndex = 0;
+			var arr= new Array;
+			 
+			for(var j=0;j<3;j++)
+			{
+				for (var i = 0; i < res.length; i++) 
+				{
+					var maxNum=Math.max.apply(Math, res);
+		    		if (res[i] == maxNum) 
+		    		{
+		                maxIndex = i;
+		            }
+		       	}
+		       	 
+		       	var secMax=Math.max.apply(Math, res);
+		       	res.splice(maxIndex, 1);
+		    	arr[j]=secMax;
+		    	
+	    	}
+	    	
+	    	document.getElementById("secNum").innerHTML="Max Sequence:"+ arr;
+		}*/
+		
+	
+	
+function findMaxSequence() {
+	var str=document.getElementById("inpNum").value;
+	var res= str.split(" ");		
+    var current = 1;
+    var bestLength = 1;
+    var bestIndex;
+    for (var i = 0; i < res.length; i++) {
+		if (res[i] < res[i + 1]) {
+            current++;
+        }
+        else { 
+		if (bestLength < current) {
+                bestLength = current;
+                bestIndex = i - current + 1;
+        	}
+        current = 1;
+    	}
+    }
+    var maxseq= res.slice(bestIndex, bestIndex + bestLength);
+    
+    var y=(bestLength < 2) ? document.getElementById("secNum").innerHTML="Max Sequence:NO ": document.getElementById("secNum").innerHTML="Max Sequence:"+ maxseq;
+    
+    };
+
+
+    
+	</script>
+
+</head>
+<body>
+	<h3>Max sequence numbers of an array</h3>
+	<p>Enter an array of numbers:</p>
+	<input type="text" id="inpNum" placeholder="put sapce between array elements" style="width:300px">
+	<button onclick="ShowNum()" id="shwButton">Show!</button>
+	<button onclick="findMaxSequence()" id="FindSeq">FindSequence!</button>
+	<p id="dispNum"></p>
+	<p id="secNum"></p>
+		
+
+</body>
+</html>
